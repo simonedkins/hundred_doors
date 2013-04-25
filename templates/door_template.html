@@ -2,6 +2,19 @@
 <html>
 	<head>
 		<title>Hundred Doors Problem Solution Output</title>
+
+	<style>
+	.red {
+		background: red;		
+	}
+	
+	.green {
+		background: green;
+	}
+
+	</style>
+
+
 	</head>
 
 	<body>
@@ -22,7 +35,7 @@
 
 				<th>{{ pass_open_count[idx] }}</th>
 				{% for door in pass %}
-				<td>{{ door }}</td>
+				<td class="{% if door %}green{% else %}red{% endif %}">{% if door %}Open{% else %}Closed{% endif %}</td>
 				{% endfor %}
 			</tr>
 
