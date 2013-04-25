@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hundred Doors Problem Solution Output</title>
+	</head>
+
+	<body>
+		<table border="1">
+			<tr>
+				<th>Pass / Door</th>
+				<th>Open Count</th>
+				{% for idx, door in enumerate(pass_list[0]) %}
+				<th>{{ idx }}</th>
+				{% endfor %}
+				
+			</tr>
+
+			{% for idx, pass in enumerate(pass_list) %}
+
+			<tr>
+				<td>{{ idx }}</td>
+
+				<th>{{ pass_open_count[idx] }}</th>
+				{% for door in pass %}
+				<td>{{ door }}</td>
+				{% endfor %}
+			</tr>
+
+			{% endfor %}			
+
+
+
+		</table>
+
+
+	</body>
+</html>
