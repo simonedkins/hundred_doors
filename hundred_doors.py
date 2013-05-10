@@ -60,20 +60,27 @@ def do_doors():
 		pass_open_count.append(sum([1 for door in doors if door.is_open==True]))
 
 	#Output the solution to html template
+	# Load the template environment
 	env = Environment(loader=PackageLoader('hundred_doors','templates'))
 
+	# Load the actual template we want to use
 	template = env.get_template('door_template.html')
 
+	# Render the template - this means create abloody great big string with all the contents of the html
+	# Notice that we are passing the lists that have been created by python to the template - the template will then 
+	# use this data for rendering. I've also passed the Python function 'enumerate' to the template because I want to use it
+	# in the template.
+	# see the template called 'door_template.html' in the templates directory of his project to see how there things are used
 	html_string = template.render({'pass_list':pass_list, 'pass_open_count':pass_open_count,'enumerate':enumerate})
 	
+	
+	#Once we have created the HTML string, we then write it to a file in the usual way
 	with open('doors_solution.html','w') as html_file:
 		html_file.write(html_string)
 	
 if __name__ == '__main__':
 
 	do_doors()
-
-
 
 
 
